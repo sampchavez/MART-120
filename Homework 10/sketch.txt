@@ -1,0 +1,86 @@
+var headX = 150;
+var headY = 225;
+var headDirection = 20;
+
+
+var bodyX = 200;
+var bodyY = 300;
+var bodyDirection = 3;
+
+var armX = 200;
+var armY = 300;
+var armDirection = 6;
+
+var mouthX = 200;
+var mouthY = 300;
+var mouthDirection = 4;
+
+var size = 50;
+var count = 10;
+var sizeDirection = 10;
+function setup()
+{
+    createCanvas(500, 600);
+}
+
+function draw()
+{
+    background(1,40,100);
+   
+ 
+    // head
+  
+    fill(255, 204, 0);
+    circle(headX,headY,225);
+    headX+=headDirection;
+    if(headX >= 418 || headX <= 82)
+    
+        headDirection *= -1;
+
+    
+  // right arm
+    fill(10, 24, 120);
+     line(mouthX,400, mouthX,350);
+  mouthX += mouthDirection;
+    if(mouthX <= 0 || mouthX >= 450 )
+    {
+        mouthDirection *= -1;
+    }
+    // eyes
+    strokeWeight(10);
+    fill(0);
+    circle(130,200,20);
+    point(130,200);
+    circle(170,200,20);
+    point(170,200);
+    // mouth
+    triangle(90, armY, 200, armY, 125, armY);
+   armY += armDirection;
+    if(armY <= 0 || armY >= 450 )
+    {
+        armDirection *= -1;
+    }
+    // body
+    fill(100, 20, 125);
+    rect(90,bodyY,130,200);
+    bodyY += bodyDirection;
+    if(bodyY <= 0 || bodyY >= 450 )
+    {
+        bodyDirection *= -1;
+    }
+  
+    // left arm
+     line(130,400, 30,350);
+    
+    fill(120);
+    textSize(size);
+    size+= sizeDirection;
+    count++;
+    if(count > 5)
+    {
+        sizeDirection *=-1;
+        count = 0;
+    }
+    text('Sam Chaves', 125, 69)
+
+}
